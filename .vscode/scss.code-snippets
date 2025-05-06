@@ -1,0 +1,107 @@
+{
+	"media max width ": {
+		"prefix": "mmax",
+        "scope": "css,scss",
+		"body": [
+			"@media screen and (max-width: $1px) {",
+			"",
+			"}"
+		],
+		"description": "creating media frame with max-width property"
+	},
+	"media min width ": {
+		"prefix": "mmin",
+        "scope": "css,scss",
+		"body": [
+			"@media screen and (min-width: $1px) {",
+			"",
+			"}"
+		],
+		"description": "creating media frame with min-width property"
+	},
+    "media min height ": {
+		"prefix": "mminh",
+        "scope": "css,scss",
+		"body": [
+			"@media screen and (min-height: $1px) {",
+			"",
+			"}"
+		],
+		"description": "creating media frame with min-height property"
+	},
+    "media max height ": {
+		"prefix": "mmaxh",
+        "scope": "css,scss",
+		"body": [
+			"@media screen and (max-height: $1px) {",
+			"",
+			"}"
+		],
+		"description": "creating media frame with max-height property"
+	},
+
+	"hover": {
+		"prefix": "hover",
+        "scope": "css,scss",
+		"body": [
+			"@media (hover : hover){",
+			"   &:hover{",
+			"      cursor:pointer;",
+			"      $1",
+			"   }",
+			"}",
+			"",
+			"@media (hover : none){",
+			"",
+			"}",
+		],
+		"description": "css hover"
+	},
+    "hover & focus": {
+		"prefix": "hf",
+        "scope": "css,scss",
+        "body": [
+			"@media (hover : hover){",
+			"   &:hover{",
+			"      cursor:pointer;",
+			"      $1",
+			"   }",
+			"}",
+            "&:focus-visible{",
+            "$1",
+            "}",
+            // "&:active{",
+            // "$2",
+            // "}",
+		],
+		"description": "css hover"
+	},
+    "hover = focus": {
+		"prefix": "hv",
+        "scope": "css,scss",
+		"body": [
+			"@include animation-on-hover{",
+			"   $1",
+			"}",
+		],
+		"description": "mixin for create equal animations for focus & hover"
+	},
+	"flex-direction": {
+		"prefix": "fdc",
+        "scope": "css,scss",
+		"body": [
+			"display: flex;",
+			"flex-direction: column;"
+		],
+		"description": "snippet for creating backdrop-fliter blur with good browser support"
+	},
+    "include wrapper": {
+        "prefix": "inc",
+        "scope": "css,scss",
+        "body": [
+            "@include wrapper($1);"
+        ],
+        "description": "snipper for including wrapper mixin"
+    }
+
+}

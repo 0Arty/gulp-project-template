@@ -1,0 +1,97 @@
+{
+    "Debug console log": {
+        "prefix": "clg",
+        "scope": "JS",
+        "body": [
+            "console.log('$1:', $1)"
+        ],
+        "description": "console log"
+    },
+    "Debounce": {
+        "prefix": "debounce",
+        "scope": "JS",
+        "body": [
+            "const handleResize = APP.utils.debounce(() => {",
+            "",
+            "}, 300);",
+            "",
+            "window.addEventListener('resize', handleResize);"
+        ],
+        "description": "function debounce for resize window"
+    },
+    "swiper": {
+        "prefix": "swiper",
+        "body": [
+            "let $1 = new Swiper('.$1', {",
+            "    mousewheel: {",
+            "       sensitivity: 0.5,",
+            "       thresholdDelta: 10,",
+            "       thresholdTime: 200,",
+            "       releaseOnEdges: true",
+            "    },",
+            "})"
+        ],
+    },
+    "swiper-pagination": {
+        "prefix": "swiper-pag",
+        "body": [
+            "pagination: {",
+            "    el: '.swiper-pagination',",
+            "    clickable: true,",
+            "}"
+        ],
+    },
+    "swiper-nav": {
+        "prefix": "swiper-nav",
+        "body": [
+            "navigation: {",
+            "    prevEl: '.swiper-button-prev',",
+            "    nextEl: '.swiper-button-next',",
+            "}"
+        ],
+    },
+    "swiper-lock": {
+        "prefix": "swiper-lock",
+        "body": [
+            "if (${1}.isLocked) {",
+            "    console.log('disabled');",
+            "} else {",
+            "    console.log('active');",
+            "}"
+        ],
+    },
+    "swiper-breakpoints": {
+        "prefix": "swiper-break",
+        "body": [
+            "breakpoints: {",
+            "   0:{",
+            "",
+            "   },",
+            "   768:{",
+            "",
+            "   }",
+            "}",
+        ],
+    },
+    "swiper-ofssets": {
+        "prefix": "swiper-offset",
+        "body": [
+            "slidesOffsetAfter: 0,",
+            "slidesOffsetBefore: 0,"
+        ],
+    },
+    "closest-elemnets": {
+        "prefix": "closest",
+        "body": [
+            "const INTERACTIVE_ELEMENTS = '$1'",
+            "$document.click(function (e) {",
+            "    if (!$(e.target).closest(INTERACTIVE_ELEMENTS ).length) {",
+            "        $2",
+            "    }",
+            "})",
+        ]
+    }
+
+    
+
+}

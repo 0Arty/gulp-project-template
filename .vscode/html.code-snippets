@@ -1,0 +1,118 @@
+{
+    "class": {
+        "prefix": "cla",
+        "scope": "html",
+        "body": [
+            "class='$1'"
+        ],
+        "description": "class "
+    },
+    "use svg ": {
+        "prefix": "use",
+        "scope": "html",
+        "body": [
+            "<svg class='icon'>",
+            "   <use xlink:href='./assets/icons/sprite.svg#$1'></use>",
+            "</svg>"
+        ],
+        "description": "create use sprite snipper"
+    },
+    "gulp-include ": {
+        "prefix": "inc",
+        "scope": "html",
+        "body": [
+            "@@include('$1')",
+        ],
+        "description": "gulp-include-files include file"
+    },
+    "gulp generate section": {
+        "prefix": "gsec",
+        "scope": "html",
+        "body": [
+            "<section class='${TM_FILENAME_BASE}'>",
+            "    $0",
+            "</section>"
+        ],
+        "description": "Create a section with class based on file name"
+    },
+    "gulp generate div": {
+        "prefix": "gdiv",
+        "scope": "html",
+        "body": [
+            "<div class='${TM_FILENAME_BASE}'>",
+            "    $0",
+            "</div>"
+        ],
+        "description": "Create a section with class based on file name"
+    },
+    "swiper": {
+        "prefix": "swiper",
+        "scope": "html",
+        "body": [
+            "<div class='swiper $1'>",
+            "    <div class='swiper-wrapper'>",
+            "        <div class='swiper-slide'>",
+            "            $2",
+            "        </div>",
+            "    </div>",
+            "</div>",
+        ],
+        "description": "create base structure for swiper slider"
+    },
+    "Insert test-text with additional tags": {
+        "prefix": "test-text-full",
+        "scope": "html",
+        "body": [
+            "<ol>",
+            "  <li> ol > li Test item 1</li>",
+            "  <li> ol > li Test item 2</li>",
+            "  <li> ol > li Test item 3</li>",
+            "</ol>",
+            "<ul>",
+            "  <li>ul > li Test item A</li>",
+            "  <li>ul > li  Test item B</li>",
+            "  <li>ul > li  Test item C</li>",
+            "</ul>",
+            "<p> p - Test paragraph text.</p>",
+            "<h1> h1 - Test </h1>",
+            "<h2> h2 - Test</h2>",
+            "<h3> h3 - Test </h3>",
+            "<h4> h4 - Test </h4>",
+            "<h5> h5 - Test </h5>",
+            "<h6> h6 - Test </h6>",
+            "<b> b - Bold </b>",
+            "<i> i - Italic </i>",
+            "<small> small - text</small>",
+            "<strong> strong - text</strong>",
+            "<mark> mark - text</mark>",
+            "<sub> sub - text</sub>",
+            "<sup> sub - text</sup>",
+            "<a href=\"#\"> a - Test link</a>",
+            "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem odit, ad ipsa atque debitis cupiditate aliquam tenetur asperiores porro alias quas? Ipsum explicabo ad rerum, recusandae quam vero repellat doloremque!</p>"
+        ],
+        "description": "Insert test text with popular tags and additional ones"
+    },
+    "picture": {
+        "prefix": "pic",
+        "scope": "html",
+        "body": [
+            "<picture class=''>",
+            "    <source srcset=\"assets/images/\" media=\"(max-width: 768px)\">",
+            "    <img src=\"assets/images/\" alt=\"\" class=''>",
+            "</picture>"
+        ]
+    },
+    "checkbox": {
+        "prefix": "checkbox",
+        "scope": "html",
+        "body": [
+            "<label for=\"checkbox\">",
+            "   <input type=\"checkbox\" name=\"\" id=\"checkbox\">",
+            "   <div class=\"checkbox-custom\">",
+            "      @@include('${1}')",
+            "   </div>",
+            "   <div class=\"text\">${2}</div>",
+            "</label>"
+        ]
+    }
+}
