@@ -102,6 +102,14 @@
             "@include wrapper($1);"
         ],
         "description": "snipper for including wrapper mixin"
+    },
+    "margin-inline": {
+        "prefix": "mi",
+        "scope": "css,scss",
+        "body": [
+            "margin-inline: $1"
+        ],
+        "description": "snipper for fast create margin-inline"
     }
 
 }
