@@ -1,0 +1,40 @@
+{
+    "gulp-include ": {
+        "prefix": "inc",
+        "scope": "html",
+        "body": [
+            "@@include('$1')",
+        ],
+        "description": "gulp-include-files include file"
+    },
+    "gulp generate section": {
+        "prefix": "gsec",
+        "scope": "html",
+        "body": [
+            "<section class='${TM_FILENAME_BASE}'>",
+            "    $0",
+            "</section>"
+        ],
+        "description": "Create a section with class based on file name"
+    },
+    "gulp generate div": {
+        "prefix": "gdiv",
+        "scope": "html",
+        "body": [
+            "<div class='${TM_FILENAME_BASE}'>",
+            "    $0",
+            "</div>"
+        ],
+        "description": "Create a section with class based on file name"
+    },
+    "gulp loop in arary": {
+        "prefix": "gfor",
+        "scope": "html",
+        "body": [
+            "@@for (var i = 0; i < $1.length; i++) { ",
+            "   @@include('../$2',`+(JSON.stringify($1[i]))+`)",
+            "}"
+        ],
+        "description": "if parrent has array props, you can use this snippet to create custom nodes in a loop"
+    }
+}

@@ -12,13 +12,10 @@
 
 body, html{
     position: relative;
-    -webkit-overflow-scrolling: auto !important;
-    scroll-behavior: auto !important;
     // scrollbar-gutter: stable both-edges;
-    
+    // overscroll-behavior: smooth;
     display: flex;
     flex-direction: column;
-
 }
 
 
