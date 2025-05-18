@@ -13,7 +13,7 @@
 body, html{
     position: relative;
     // scrollbar-gutter: stable both-edges;
-    // overscroll-behavior: smooth;
+    overscroll-behavior: smooth;
     display: flex;
     flex-direction: column;
 }

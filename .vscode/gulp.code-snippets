@@ -31,8 +31,10 @@
         "prefix": "gfor",
         "scope": "html",
         "body": [
-            "@@for (var i = 0; i < $1.length; i++) { ",
-            "   @@include('../$2',`+(JSON.stringify($1[i]))+`)",
+            "@@if (typeof links !== 'undefined' && Array.isArray(links)) {",
+            "   @@for (var i = 0; i < $1.length; i++) { ",
+            "      @@include('../$2',`+(JSON.stringify($1[i]))+`)",
+            "   }",
             "}"
         ],
         "description": "if parrent has array props, you can use this snippet to create custom nodes in a loop"
