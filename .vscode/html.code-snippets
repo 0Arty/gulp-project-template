@@ -73,18 +73,5 @@
             "    <img src=\"assets/images/\" alt=\"\" class=''>",
             "</picture>"
         ]
-    },
-    "checkbox": {
-        "prefix": "checkbox",
-        "scope": "html",
-        "body": [
-            "<label for=\"checkbox\">",
-            "   <input type=\"checkbox\" name=\"\" id=\"checkbox\">",
-            "   <div class=\"checkbox-custom\">",
-            "      @@include('${1}')",
-            "   </div>",
-            "   <div class=\"text\">${2}</div>",
-            "</label>"
-        ]
     }
 }

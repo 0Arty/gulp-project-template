@@ -95,7 +95,7 @@ APP.site = {
             '.openModal',
             '.closeModal'
         )
-        
+
         mainModal.open()
         mainModal.closeOptions = () => {
             console.log('i changes close options:',)
@@ -108,6 +108,66 @@ APP.site = {
     }
 }
 
+// INPUTS
+
+APP.inputMasks = () => {
+    $('input[data-input-type]').each(function () {
+        const inputType = $(this).data('input-type');
+
+        switch (inputType) {
+            case 'text':
+                // Маска для текстового поля (дозволяє тільки літери та пробіли)
+                $(this).inputmask({
+                    mask: '*{1,50}',
+                    definitions: {
+                        '*': {
+                            validator: '[A-Za-zА-Яа-яЁё\\s]',
+                            cardinality: 1
+                        }
+                    },
+                    placeholder: '',
+                    clearIncomplete: true
+                });
+                break;
+
+            case 'number':
+                // Маска для числового поля (дозволяє тільки цифри)
+                $(this).inputmask({
+                    mask: '9{1,10}',
+                    placeholder: '',
+                    clearIncomplete: true
+                });
+                break;
+
+            case 'email':
+                // Маска для email
+                $(this).inputmask({
+                    mask: '*{1,64}@*{1,64}.*{1,10}',
+                    greedy: false,
+                    definitions: {
+                        '*': {
+                            validator: '[0-9A-Za-z!#$%&\'*+/=?^_`{|}~-]',
+                            cardinality: 1
+                        }
+                    },
+                    placeholder: '',
+                    clearIncomplete: true
+                });
+                break;
+
+            case 'phone':
+                // Маска для телефону (формат +38 (XXX) XXX-XX-XX)
+                $(this).inputmask({
+                    mask: '+38 (999) 999-99-99',
+                    placeholder: '+38 (___) ___-__-__',
+                    clearIncomplete: true
+                });
+                break;
+        }
+    });
+}
+
+
 $document.ready(function () {
-    APP.site.modals()
+    APP.inputMasks()
 })

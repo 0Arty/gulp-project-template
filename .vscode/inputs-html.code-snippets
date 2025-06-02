@@ -1,0 +1,43 @@
+{
+    "checkbox": {
+        "prefix": "checkbox",
+        "scope": "html",
+        "body": [
+            "<label for=\"checkbox\">",
+            "   <input type=\"checkbox\" name=\"\" id=\"checkbox\">",
+            "   <div class=\"checkbox-custom\">",
+            "      @@include('${1}')",
+            "   </div>",
+            "   <div class=\"text\">${2}</div>",
+            "</label>"
+        ]
+    },
+    "input-text": {
+        "prefix": "input-text",
+        "body": [
+            "<input type=\"text\" data-input-type=\"text\">"
+        ],
+        "description": "input text only"
+    },
+    "input-number": {
+        "prefix": "input-number",
+        "body": [
+            "<input type=\"text\" data-input-type=\"number\">"
+        ],
+        "description": "input-number"
+    },
+    "input-email": {
+        "prefix": "input-email",
+        "body": [
+            "<input type=\"text\" data-input-type=\"email\">"
+        ],
+        "description": "input-email"
+    },
+    "input-phone": {
+        "prefix": "input-phone",
+        "body": [
+            "<input type=\"text\" data-input-type=\"phone\">"
+        ],
+        "description": "input-phone"
+    }
+}
