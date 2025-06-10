@@ -104,7 +104,7 @@ gulp.task('files:dev', function () {
 
 gulp.task('js:dev', function () {
 	return gulp
-		.src('./src/js/*.js')
+		.src(['./src/js/*.js', './src/js/*.json', './src/js/*', './src/js/*/*'])
 		.pipe(changed('./build/js/'))
 		// .pipe(plumber(plumberNotify('JS')))
 		// .pipe(babel())
