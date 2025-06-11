@@ -46,15 +46,7 @@ const plumberNotify = (title) => {
 gulp.task('html:dev', function () {
 	return (
 		gulp
-			.src([
-                './src/html/**/*.html',
-                '!./src/html/atoms/*.html',
-                '!./src/html/modals/*.html',
-                '!./src/html/molecules/*.html',
-                '!./src/html/organisms/*.html',
-                '!./src/html/pages/*.html',
-                '!./src/html/templates/*.html'
-            ])
+			.src(['./src/html/**/*.html', '!./src/html/atoms/*.html', '!./src/html/modals/*.html', '!./src/html/molecules/*.html', '!./src/html/organisms/*.html', '!./src/html/pages/*.html', '!./src/html/templates/*.html'])
 			.pipe(changed('./build/', { hasChanged: changed.compareContents }))
 			.pipe(plumber(plumberNotify('HTML')))
 			.pipe(fileInclude(fileIncludeSetting))
@@ -104,13 +96,24 @@ gulp.task('files:dev', function () {
 
 gulp.task('js:dev', function () {
 	return gulp
-		.src(['./src/js/*.js', './src/js/*.json', './src/js/*', './src/js/*/*'])
-		.pipe(changed('./build/js/'))
-		// .pipe(plumber(plumberNotify('JS')))
-		// .pipe(babel())
-		// .pipe(webpack(require('./../webpack.config.js')))
-		.pipe(gulp.dest('./build/js/'));
+       .src(['./src/js/*.js']) 
+        .pipe(changed('./build/js/'))
+        .pipe(plumber(plumberNotify('JS')))
+        // .pipe(babel())
+        // .pipe(webpack(require('./../webpack.config.js')))
+        .pipe(gulp.dest('./build/js/'));
 });
+
+gulp.task('json:dev', function () {
+    return gulp
+        .src(['./src/js/*.json', './src/js/*/*.json'])
+        .pipe(changed('./build/js/'))
+        .pipe(changed('./build/js/data/'))
+        .pipe(plumber(plumberNotify('JSON')))
+        .pipe(gulp.dest('./build/js/'))
+        .pipe(gulp.dest('./build/js/data/'));
+});
+
 
 const serverOptions = {
 	livereload: true,
@@ -128,4 +131,5 @@ gulp.task('watch:dev', function () {
 	gulp.watch('./src/fonts/**/*', gulp.parallel('fonts:dev'));
 	gulp.watch('./src/files/**/*', gulp.parallel('files:dev'));
 	gulp.watch('./src/js/**/*.js', gulp.parallel('js:dev'));
+    gulp.watch('./src/js/**/*.json', gulp.parallel('json:dev'));
 });
