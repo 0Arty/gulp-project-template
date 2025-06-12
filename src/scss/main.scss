@@ -1,16 +1,12 @@
-/* utils */
-@import "./utils/reset";
-@import "./utils/vars";
-@import './utils/fonts';
-@import "./utils/base";
-@import "./utils/utils";
-@import "./utils/animations";
-@import "./utils/sticky-footer";
-@import "./utils/mixins";
+@use 'normalize';
+@use 'fonts';
+@use 'variables';
+@use 'utils';
+@use 'globals';
 
-/* Components */
-@import "./atoms/*.scss";
-@import "./molecules/*.scss";
-@import "./organisms/*.scss";
-@import "./templates/*.scss";
-@import "./pages/*.scss";
+@use 'helpers';
+
+
+// blocks
+@use './blocks';
+@use './components';

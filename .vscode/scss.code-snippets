@@ -96,20 +96,45 @@
 		"description": "snippet for creating backdrop-fliter blur with good browser support"
 	},
     "include wrapper": {
-        "prefix": "inc",
+        "prefix": "incw",
         "scope": "css,scss",
         "body": [
             "@include wrapper($1);"
         ],
         "description": "snipper for including wrapper mixin"
     },
+    "include": {
+        "prefix": "inc",
+        "scope": "scss",
+        "body": [
+            "@include $1;"
+        ]
+    },
+    "rem": {
+        "prefix": "rem",
+        "scope": "scss",
+        "body": [
+            "rem($1)"
+        ]
+    },
+    "var": {
+        "prefix": "var",
+        "scope": "css,scss",
+        "body": [
+            "var(--$1)"
+        ]
+    },
     "margin-inline": {
         "prefix": "mi",
         "scope": "css,scss",
         "body": [
-            "margin-inline: $1"
+            "margin-inline: $1;"
         ],
         "description": "snipper for fast create margin-inline"
+    },
+    "add-mixins" : {
+        "prefix" : "use",
+        "scope": "scss, sass",
+        "body": "@use '../helpers' as *;",
     }
-
 }

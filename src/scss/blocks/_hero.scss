@@ -1,0 +1,6 @@
+@use '../helpers' as *;
+
+
+p{
+    @include fluid-text(50, 10);
+}

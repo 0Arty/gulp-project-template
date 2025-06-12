@@ -1,0 +1,16 @@
+@use 'helpers' as *;
+
+:root{
+    // base variables
+    --transition-duration : 0.4s;
+    --base-color: black;
+    --base-font-family: 'Inter';
+    --base-font-size: rem(16);
+    --color-light: teal;
+
+
+
+    // layers
+    --layer-top-header: 1000;
+    --layer-top: 950;
+}

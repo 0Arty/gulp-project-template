@@ -7,16 +7,6 @@
         ],
         "description": "class "
     },
-    "use svg ": {
-        "prefix": "use",
-        "scope": "html",
-        "body": [
-            "<svg class='icon'>",
-            "   <use xlink:href='./assets/icons/sprite.svg#$1'></use>",
-            "</svg>"
-        ],
-        "description": "create use sprite snipper"
-    },
     "swiper": {
         "prefix": "swiper",
         "scope": "html",
