@@ -31,7 +31,7 @@
         "prefix": "gfor",
         "scope": "html",
         "body": [
-            "@@if (typeof links !== 'undefined' && Array.isArray(links)) {",
+            "@@if (typeof $1 !== 'undefined' && Array.isArray($1)) {",
             "   @@for (var i = 0; i < $1.length; i++) { ",
             "      @@include('../$2',`+(JSON.stringify($1[i]))+`)",
             "   }",
