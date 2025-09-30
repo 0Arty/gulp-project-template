@@ -1,16 +1,22 @@
 @use './functions' as *;
+@use './media' as *;
 
-@mixin wrapper($width: rem(1240)) {
-    $padding : rem(20);
+@mixin wrapper($width: rem(1680)) {
+    $padding : rem(40);
+    $padding-mobile : rem(20);
     width: 100%;
     max-width: $width;
     margin-inline: auto;
     $breakpoint : calc($width + $padding + $padding);
 
     @media screen and (max-width: $breakpoint) {
-        width: calc(100% - $padding - $padding);
-        margin-inline: $padding;
+        width: calc(100% - ($padding * 2));
     }
+
+    @include mobile {
+        width: calc(100% - ($padding-mobile * 2));
+    }
+
 }
 
 @mixin animation-on-hover {
@@ -72,6 +78,18 @@
     }
 }
 
+@mixin hide-scrollbar {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    // Для Firefox
+    scrollbar-width: none;
+
+    // Для IE та старих версій Edge
+    -ms-overflow-style: none;
+}
+
 @mixin fluid-text($max: 48, $min: 16) {
-  font-size: fluid($max, $min);
+    font-size: fluid($max, $min);
 }
