@@ -28,9 +28,11 @@ gulp.task('clean:dev', function (done) {
 	done();
 });
 
+const configJson = JSON.parse(fs.readFileSync("gulp/config.json"));
 const fileIncludeSetting = {
 	prefix: '@@',
 	basepath: '@file',
+    context: configJson
 };
 
 const plumberNotify = (title) => {
