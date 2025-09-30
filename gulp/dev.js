@@ -46,7 +46,7 @@ const plumberNotify = (title) => {
 gulp.task('html:dev', function () {
 	return (
 		gulp
-			.src(['./src/html/**/*.html', '!./src/html/atoms/*.html', '!./src/html/modals/*.html', '!./src/html/molecules/*.html', '!./src/html/organisms/*.html', '!./src/html/pages/*.html', '!./src/html/templates/*.html'])
+			.src(['./src/html/**/*.html', '!./src/html/atoms/*.html', '!./src/html/modals/*.html', '!./src/html/molecules/*.html', '!./src/html/organisms/*.html', '!./src/html/pages/*.html', '!./src/html/templates/*.html', '!./src/html/utils/*.html'])
 			.pipe(changed('./build/', { hasChanged: changed.compareContents }))
 			.pipe(plumber(plumberNotify('HTML')))
 			.pipe(fileInclude(fileIncludeSetting))
@@ -105,12 +105,11 @@ gulp.task('js:dev', function () {
 });
 
 gulp.task('json:dev', function () {
+    console.log('asdads')
     return gulp
-        .src(['./src/js/*.json', './src/js/*/*.json'])
-        .pipe(changed('./build/js/'))
+        .src(['./src/js/data/*.json'])
         .pipe(changed('./build/js/data/'))
         .pipe(plumber(plumberNotify('JSON')))
-        .pipe(gulp.dest('./build/js/'))
         .pipe(gulp.dest('./build/js/data/'));
 });
 
@@ -131,5 +130,5 @@ gulp.task('watch:dev', function () {
 	gulp.watch('./src/fonts/**/*', gulp.parallel('fonts:dev'));
 	gulp.watch('./src/files/**/*', gulp.parallel('files:dev'));
 	gulp.watch('./src/js/**/*.js', gulp.parallel('js:dev'));
-    gulp.watch('./src/js/**/*.json', gulp.parallel('json:dev'));
+    gulp.watch('./src/js/data/*.json', gulp.parallel('json:dev'));
 });
