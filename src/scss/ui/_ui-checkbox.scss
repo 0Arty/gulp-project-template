@@ -1,0 +1,24 @@
+@use '../helpers' as *;
+
+.ui-checkbox {
+
+    input[type=checkbox] {
+        opacity: 0;
+        position: absolute;
+        z-index: -1000;
+
+    }
+    input[type=checkbox]:checked+.ui-checkbox___custom{
+        background-color: red;
+    }
+
+
+    .ui-checkbox___custom{
+        width: rem(20);
+        height: rem(20);
+        border-radius: rem(4);
+        border: 1px solid red;
+
+    }
+
+}

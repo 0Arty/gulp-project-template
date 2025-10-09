@@ -1,3 +1,7 @@
 {
-    "contact": "https://example.com/contact-link"
+    "contact": "https://example.com/contact-link",
+    "meta": {
+        "title": "DEV | <blank>",
+        "description": "<blank>"
+    }
 }

@@ -3,7 +3,7 @@
 		"prefix": "mmax",
         "scope": "css,scss",
 		"body": [
-			"@media screen and (max-width: $1px) {",
+			"@media screen and (max-width: rem($1)) {",
 			"",
 			"}"
 		],
@@ -13,7 +13,7 @@
 		"prefix": "mmin",
         "scope": "css,scss",
 		"body": [
-			"@media screen and (min-width: $1px) {",
+			"@media screen and (min-width: rem($1)) {",
 			"",
 			"}"
 		],
@@ -23,7 +23,7 @@
 		"prefix": "mminh",
         "scope": "css,scss",
 		"body": [
-			"@media screen and (min-height: $1px) {",
+			"@media screen and (min-height: rem($1)) {",
 			"",
 			"}"
 		],
@@ -33,48 +33,11 @@
 		"prefix": "mmaxh",
         "scope": "css,scss",
 		"body": [
-			"@media screen and (max-height: $1px) {",
+			"@media screen and (max-height: rem($1)) {",
 			"",
 			"}"
 		],
 		"description": "creating media frame with max-height property"
-	},
-
-	"hover": {
-		"prefix": "hover",
-        "scope": "css,scss",
-		"body": [
-			"@media (hover : hover){",
-			"   &:hover{",
-			"      cursor:pointer;",
-			"      $1",
-			"   }",
-			"}",
-			"",
-			"@media (hover : none){",
-			"",
-			"}",
-		],
-		"description": "css hover"
-	},
-    "hover & focus": {
-		"prefix": "hf",
-        "scope": "css,scss",
-        "body": [
-			"@media (hover : hover){",
-			"   &:hover{",
-			"      cursor:pointer;",
-			"      $1",
-			"   }",
-			"}",
-            "&:focus-visible{",
-            "$1",
-            "}",
-            // "&:active{",
-            // "$2",
-            // "}",
-		],
-		"description": "css hover"
 	},
     "hover = focus": {
 		"prefix": "hv",
@@ -99,7 +62,7 @@
         "prefix": "incw",
         "scope": "css,scss",
         "body": [
-            "@include wrapper($1);"
+            "@include wrapper(rem($1));"
         ],
         "description": "snipper for including wrapper mixin"
     },
@@ -111,7 +74,7 @@
         ]
     },
     "rem": {
-        "prefix": "rem",
+        "prefix": "re",
         "scope": "scss",
         "body": [
             "rem($1)"
@@ -128,7 +91,7 @@
         "prefix": "mi",
         "scope": "css,scss",
         "body": [
-            "margin-inline: $1;"
+            "margin-inline: rem($1);"
         ],
         "description": "snipper for fast create margin-inline"
     },
@@ -136,5 +99,32 @@
         "prefix" : "use",
         "scope": "scss, sass",
         "body": "@use '../helpers' as *;",
+    },
+    "fill" : {
+        "prefix" : "fill",
+        "scope": "scss, sass",
+        "body": [
+            "[fill] {",
+            "    fill: currentColor",
+            "}"
+        ],
+    },
+    "stroke" : {
+        "prefix" : "stroke",
+        "scope": "scss, sass",
+        "body": [
+            "[stroke] {",
+            "    stroke: currentColor",
+            "}"
+        ],
+    },
+    "create mobile breakpoint" : {
+        "prefix" : "mob",
+        "scope": "scss, sass",
+        "body": [
+            "@include mobile{",
+            "   $1",
+            "}"
+        ],
     }
 }

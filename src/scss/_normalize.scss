@@ -98,17 +98,6 @@ label {
 
 a{}
 
-
-
-
-[fill] {
-    fill: currentColor
-}
-
-[stroke] {
-    stroke: currentColor
-}
-
 svg * {
     transition-property: fill, stroke;
 }
@@ -118,9 +107,6 @@ button {
     outline: none;
     border: none;
 }
-
-
-
 
 
 // відключаємо анімації, для людей які їх не бажають
@@ -134,4 +120,9 @@ button {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+body, html{
+    -webkit-overflow-scrolling: auto !important;
+    scroll-behavior: auto !important;
 }

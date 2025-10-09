@@ -15,7 +15,8 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
-    font-size: var(--base-font-family);
+    font-family: var(--base-font-family);
+    font-size: var(--base-font-size);
     color: var(--base-color);
 
     main{
@@ -34,8 +35,8 @@ a {
   }
 }
 
-:focus-visible {
-  outline: rem(2) dashed var(--color-light);
-  outline-offset: rem(4);
-  transition-duration: 0s !important;
-}
+// :focus-visible {
+//   outline: rem(2) dashed var(--color-light);
+//   outline-offset: rem(4);
+//   transition-duration: 0s !important;
+// }

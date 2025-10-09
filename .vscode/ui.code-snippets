@@ -1,0 +1,15 @@
+{
+    "create-checkbox": {
+        "prefix": "ui-checkbox",
+        "scope": "html",
+        "body": [
+            "<label for=\"test-checkbox\">",
+            "    @@include('ui/ui-checkbox.html', {",
+            "        id: '',",
+            "        className: \"\"",
+            "    })",
+            "</label>"
+        ],
+        "description": "create-checkbox"
+    }
+}

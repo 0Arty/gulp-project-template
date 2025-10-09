@@ -13,7 +13,7 @@ class ModalWindow {
         this.init()
     }
 
-    open() {
+    openModal() {
         this.$modal.fadeIn(400)
         this.$openBtn.addClass('open')
         $('body').addClass('no-scroll')
@@ -22,7 +22,7 @@ class ModalWindow {
     }
     openOptions() { }
 
-    close() {
+    closeModal() {
         this.$modal.fadeOut(400)
         this.$openBtn.removeClass('open')
         $('body').removeClass('no-scroll')
@@ -109,7 +109,6 @@ APP.site = {
 }
 
 // INPUTS
-
 APP.inputMasks = () => {
     $('input[data-input-type]').each(function () {
         const inputType = $(this).data('input-type');
