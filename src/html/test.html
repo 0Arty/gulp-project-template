@@ -27,7 +27,7 @@
   
   <div class="section section-1">Секція 3: Кінець (тут ти опинишся після стрибка)</div>
   
-  <script>
+  <script> 
     // Реєстрація (без normalizeScroll, щоб баг проявився)
     gsap.registerPlugin(ScrollTrigger);
     
@@ -35,7 +35,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const items = gsap.utils.toArray('.item');
       items.forEach(item => {
-        gsap.fromTo(item, 
+        gsap.fromTo(item,  
           { opacity: 0, x: -250 }, 
           { 
             opacity: 1, 
