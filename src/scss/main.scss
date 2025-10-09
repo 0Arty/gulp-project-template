@@ -11,3 +11,8 @@
 // @use './components';
 // @use './ui';
 // @use './templates'
+
+
+html, body{
+    scroll-behavior: smooth;
+}
