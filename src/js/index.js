@@ -108,6 +108,16 @@ APP.site = {
     }
 }
 
+APP.gsapConfig = () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.config({
+        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+        ignoreMobileResize: true
+    });
+
+    ScrollTrigger.normalizeScroll(true);
+}
 // INPUTS
 APP.inputMasks = () => {
     $('input[data-input-type]').each(function () {
@@ -168,5 +178,9 @@ APP.inputMasks = () => {
 
 
 $document.ready(function () {
+    APP.gsapConfig()
+
     APP.inputMasks()
+    
+    ScrollTrigger.refresh();
 })
