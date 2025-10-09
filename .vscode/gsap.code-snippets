@@ -1,0 +1,15 @@
+{
+    "create ScrollTrigger": {
+        "prefix": "gsap-scrollTrigger",
+        "body": [
+            "scrollTrigger: {",
+            "        trigger: '.item',",
+            "        start: 'top bottom',",
+            "        scrub: true,",
+            "        invalidateOnRefresh: true,  // Очищує значення при refresh",
+            "        preventOverlaps: true  // Уникає конфліктів тригерів",
+            "}"
+        ],
+        "description": "create ScrollTrigger"
+    }
+}

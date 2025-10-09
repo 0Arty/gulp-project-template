@@ -1,18 +1,13 @@
-// @use 'normalize';
-// @use 'fonts';
-// @use 'variables';
-// @use 'utils';
-// @use 'globals';
+@use 'normalize';
+@use 'fonts';
+@use 'variables';
+@use 'utils';
+@use 'globals';
 
-// @use 'helpers';
-
-
-// // blocks
-// @use './components';
-// @use './ui';
-// @use './templates'
+@use 'helpers';
 
 
-html, body{
-    scroll-behavior: smooth;
-}
+// blocks
+@use './components';
+@use './ui';
+@use './templates'

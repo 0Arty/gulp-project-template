@@ -125,4 +125,5 @@ button {
 body, html{
     -webkit-overflow-scrolling: auto !important;
     scroll-behavior: auto !important;
+    overscroll-behavior: none;
 }

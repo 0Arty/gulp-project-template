@@ -1,5 +1,4 @@
 let APP = {}
-let $document = $(document)
 
 // CLASSES ========================================================================
 class ModalWindow {
@@ -52,16 +51,6 @@ class ModalWindow {
     }
 }
 
-class NewCustomModalWindow extends ModalWindow {
-    constructor(modalSelector, btnOpenSelector, btnCloseSelector) {
-        super(modalSelector, btnOpenSelector, btnCloseSelector)
-    }
-
-    closeModal() {
-        //another cutom modal close logic
-    }
-}
-
 // APP UTILS =======================================================================
 APP.utils = {
     debounce: (func, delay) => {
@@ -84,32 +73,95 @@ APP.utils = {
                 lastCall = now
             }
         }
-    }
-}
+    },
+    onWidthChange: (callback, debounceMs = 150) => {
+        let lastWidth = window.innerWidth;
+        let timeoutId = null;
 
-// MAIN LOGIC =======================================================================
-APP.site = {
-    modals: () => {
-        const mainModal = new ModalWindow(
-            '.modal',
-            '.openModal',
-            '.closeModal'
-        )
+        function handleResize() {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
 
-        mainModal.open()
-        mainModal.closeOptions = () => {
-            console.log('i changes close options:',)
+            timeoutId = setTimeout(() => {
+                const currentWidth = window.innerWidth;
+
+                if (currentWidth !== lastWidth) {
+                    lastWidth = currentWidth;
+                    callback(currentWidth);
+                }
+            }, debounceMs);
         }
 
-        setTimeout(() => {
-            mainModal.close()
+        window.addEventListener('resize', handleResize);
 
-        }, 5000)
+        return () => {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            window.removeEventListener('resize', handleResize);
+        };
+    },
+    inputMasks: () => {
+        $('input[data-input-type]').each(function () {
+            const inputType = $(this).data('input-type');
+
+            switch (inputType) {
+                case 'text':
+                    // Маска для текстового поля (дозволяє тільки літери та пробіли)
+                    $(this).inputmask({
+                        mask: '*{1,50}',
+                        definitions: {
+                            '*': {
+                                validator: '[A-Za-zА-Яа-яЁё\\s]',
+                                cardinality: 1
+                            }
+                        },
+                        placeholder: '',
+                        clearIncomplete: true
+                    });
+                    break;
+
+                case 'number':
+                    // Маска для числового поля (дозволяє тільки цифри)
+                    $(this).inputmask({
+                        mask: '9{1,10}',
+                        placeholder: '',
+                        clearIncomplete: true
+                    });
+                    break;
+
+                case 'email':
+                    // Маска для email
+                    $(this).inputmask({
+                        mask: '*{1,64}@*{1,64}.*{1,10}',
+                        greedy: false,
+                        definitions: {
+                            '*': {
+                                validator: '[0-9A-Za-z!#$%&\'*+/=?^_`{|}~-]',
+                                cardinality: 1
+                            }
+                        },
+                        placeholder: '',
+                        clearIncomplete: true
+                    });
+                    break;
+
+                case 'phone':
+                    // Маска для телефону (формат +38 (XXX) XXX-XX-XX)
+                    $(this).inputmask({
+                        mask: '+38 (999) 999-99-99',
+                        placeholder: '+38 (___) ___-__-__',
+                        clearIncomplete: true
+                    });
+                    break;
+            }
+        });
     }
 }
 
 APP.gsapConfig = () => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, SplitText);
 
     ScrollTrigger.config({
         autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
@@ -117,70 +169,13 @@ APP.gsapConfig = () => {
     });
 
     ScrollTrigger.normalizeScroll(true);
-}
-// INPUTS
-APP.inputMasks = () => {
-    $('input[data-input-type]').each(function () {
-        const inputType = $(this).data('input-type');
-
-        switch (inputType) {
-            case 'text':
-                // Маска для текстового поля (дозволяє тільки літери та пробіли)
-                $(this).inputmask({
-                    mask: '*{1,50}',
-                    definitions: {
-                        '*': {
-                            validator: '[A-Za-zА-Яа-яЁё\\s]',
-                            cardinality: 1
-                        }
-                    },
-                    placeholder: '',
-                    clearIncomplete: true
-                });
-                break;
-
-            case 'number':
-                // Маска для числового поля (дозволяє тільки цифри)
-                $(this).inputmask({
-                    mask: '9{1,10}',
-                    placeholder: '',
-                    clearIncomplete: true
-                });
-                break;
-
-            case 'email':
-                // Маска для email
-                $(this).inputmask({
-                    mask: '*{1,64}@*{1,64}.*{1,10}',
-                    greedy: false,
-                    definitions: {
-                        '*': {
-                            validator: '[0-9A-Za-z!#$%&\'*+/=?^_`{|}~-]',
-                            cardinality: 1
-                        }
-                    },
-                    placeholder: '',
-                    clearIncomplete: true
-                });
-                break;
-
-            case 'phone':
-                // Маска для телефону (формат +38 (XXX) XXX-XX-XX)
-                $(this).inputmask({
-                    mask: '+38 (999) 999-99-99',
-                    placeholder: '+38 (___) ___-__-__',
-                    clearIncomplete: true
-                });
-                break;
-        }
-    });
+    APP.utils.onWidthChange(() => { ScrollTrigger.refresh() })
+    window.addEventListener('load', () => { setTimeout(() => ScrollTrigger.refresh(), 100); });
 }
 
-
-$document.ready(function () {
+document.addEventListener("DOMContentLoaded", (event) => {
     APP.gsapConfig()
-
-    APP.inputMasks()
+    APP.utils.inputMasks()
     
-    ScrollTrigger.refresh();
-})
+    setTimeout(() => ScrollTrigger.refresh(), 100);
+});
