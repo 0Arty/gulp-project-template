@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safari GSAP Jump to Top Bug Demo</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>script>
   <style>
     body { margin: 0; font-family: Arial; }
     .section { height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 2em; }
@@ -44,7 +44,8 @@
               trigger: item,
               start: 'top bottom',
               end: 'bottom top',
-              scrub: true  // Scrub викликає _softRefresh, що скидає скрол
+              scrub: true,
+              pin: true  // Scrub викликає _softRefresh, що скидає скрол
             }
           }
         );
