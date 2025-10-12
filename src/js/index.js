@@ -151,7 +151,7 @@ APP.utils = {
                     // Маска для телефону (формат +38 (XXX) XXX-XX-XX)
                     $(this).inputmask({
                         mask: '+38 (999) 999-99-99',
-                        placeholder: '+38 (___) ___-__-__',
+                        placeholder: '+38 (XXX) XXX-XX-XX',
                         clearIncomplete: true
                     });
                     break;
