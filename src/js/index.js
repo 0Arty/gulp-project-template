@@ -172,7 +172,8 @@ APP.utils = {
 }
 
 APP.gsapConfig = () => {
-    gsap.registerPlugin(DrawSVGPlugin, ScrollSmoother, ScrollTrigger, SplitText);
+    // ScrollSmoother
+    gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, SplitText);
 
     ScrollTrigger.config({
         autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",

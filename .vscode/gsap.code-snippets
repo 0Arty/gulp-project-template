@@ -1,15 +1,330 @@
 {
-    "create ScrollTrigger": {
-        "prefix": "gsap-scrollTrigger",
-        "body": [
-            "scrollTrigger: {",
-            "        trigger: '.item',",
-            "        start: 'top bottom',",
-            "        scrub: true,",
-            "        invalidateOnRefresh: true,  // Очищує значення при refresh",
-            "        preventOverlaps: true  // Уникає конфліктів тригерів",
-            "}"
-        ],
-        "description": "create ScrollTrigger"
-    }
+  "create ScrollTrigger": {
+    "prefix": "gsap-scrollTrigger",
+    "body": [
+      "scrollTrigger: {",
+      "\ttrigger: '.item',",
+      "\tstart: 'top bottom',",
+      "\tscrub: true,",
+      "\tinvalidateOnRefresh: true,",
+      "\tpreventOverlaps: true",
+      "}"
+    ],
+    "description": "create ScrollTrigger"
+  },
+  "GSAP To Animation": {
+    "prefix": "gto",
+    "body": [
+      "gsap.to('${1:.element}', {",
+      "\t${2:x: 100,}",
+      "\tduration: ${3:1},",
+      "\tease: '${4:power2.out}',",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${5:.element}',",
+      "\t\tstart: '${6:top 80%}',",
+      "\t\ttoggleActions: '${7:play none none reverse}'",
+      "\t}",
+      "});"
+    ],
+    "description": "GSAP .to() з ScrollTrigger"
+  },
+  "GSAP From Animation": {
+    "prefix": "gfrom",
+    "body": [
+      "gsap.from('${1:.element}', {",
+      "\t${2:opacity: 0,}",
+      "\tduration: ${3:1},",
+      "\tease: '${4:power2.out}',",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${5:.element}',",
+      "\t\tstart: '${6:top 80%}',",
+      "\t\ttoggleActions: '${7:play none none reverse}'",
+      "\t}",
+      "});"
+    ],
+    "description": "GSAP .from() з ScrollTrigger"
+  },
+  "GSAP FromTo Animation": {
+    "prefix": "gfromto",
+    "body": [
+      "gsap.fromTo('${1:.element}',",
+      "\t{",
+      "\t\t${2:opacity: 0,}",
+      "\t\t${3:y: 50}",
+      "\t},",
+      "\t{",
+      "\t\t${4:opacity: 1,}",
+      "\t\t${5:y: 0,}",
+      "\t\tduration: ${6:1},",
+      "\t\tease: '${7:power2.out}',",
+      "\t\tscrollTrigger: {",
+      "\t\t\ttrigger: '${8:.element}',",
+      "\t\t\tstart: '${9:top 80%}',",
+      "\t\t\ttoggleActions: '${10:play none none reverse}'",
+      "\t\t}",
+      "\t}",
+      ");"
+    ],
+    "description": "GSAP .fromTo() з ScrollTrigger"
+  },
+  "GSAP Timeline": {
+    "prefix": "gtl",
+    "body": [
+      "const ${1:tl} = gsap.timeline({",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${2:.section}',",
+      "\t\tstart: '${3:top 80%}',",
+      "\t\ttoggleActions: '${4:play none none reverse}'",
+      "\t}",
+      "});",
+      "",
+      "${1:tl}",
+      "\t.from('${5:.element1}', { ${6:opacity: 0, y: 50, duration: 0.8} })",
+      "\t.from('${7:.element2}', { ${8:opacity: 0, y: 50, duration: 0.8} }, '${9:<0.3}');"
+    ],
+    "description": "GSAP Timeline з ScrollTrigger"
+  },
+  "GSAP Pin Section": {
+    "prefix": "gpin",
+    "body": [
+      "ScrollTrigger.create({",
+      "\ttrigger: '${1:.section}',",
+      "\tpin: true,",
+      "\tstart: '${2:top top}',",
+      "\tend: '${3:+=100%}',",
+      "\tscrub: ${4:true},",
+      "\tanticipatePin: 1,",
+      "\tmarkers: ${5:false}",
+      "});"
+    ],
+    "description": "Пін секції з ScrollTrigger"
+  },
+  "GSAP Scrub Animation": {
+    "prefix": "gscrub",
+    "body": [
+      "gsap.to('${1:.element}', {",
+      "\t${2:x: 100,}",
+      "\tease: 'none',",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${3:.section}',",
+      "\t\tstart: '${4:top top}',",
+      "\t\tend: '${5:bottom top}',",
+      "\t\tscrub: ${6:1},",
+      "\t\tmarkers: ${7:false}",
+      "\t}",
+      "});"
+    ],
+    "description": "Анімація зі scrub (прив'язана до скролу)"
+  },
+  "GSAP Horizontal Scroll": {
+    "prefix": "ghscroll",
+    "body": [
+      "const ${1:sections} = gsap.utils.toArray('${2:.panel}');",
+      "",
+      "gsap.to(${1:sections}, {",
+      "\txPercent: -100 * (${1:sections}.length - 1),",
+      "\tease: 'none',",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${3:.container}',",
+      "\t\tpin: true,",
+      "\t\tscrub: 1,",
+      "\t\tsnap: 1 / (${1:sections}.length - 1),",
+      "\t\tend: () => '+=' + document.querySelector('${3:.container}').offsetWidth",
+      "\t}",
+      "});"
+    ],
+    "description": "Горизонтальний скрол секцій"
+  },
+  "GSAP Parallax": {
+    "prefix": "gparallax",
+    "body": [
+      "gsap.to('${1:.parallax-element}', {",
+      "\ty: ${2:-100},",
+      "\tease: 'none',",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${3:.section}',",
+      "\t\tstart: '${4:top bottom}',",
+      "\t\tend: '${5:bottom top}',",
+      "\t\tscrub: true",
+      "\t}",
+      "});"
+    ],
+    "description": "Простий parallax ефект"
+  },
+  "GSAP Stagger Animation": {
+    "prefix": "gstagger",
+    "body": [
+      "gsap.from('${1:.item}', {",
+      "\t${2:opacity: 0,}",
+      "\t${3:y: 50,}",
+      "\tduration: ${4:0.8},",
+      "\tstagger: ${5:0.2},",
+      "\tease: '${6:power2.out}',",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${7:.container}',",
+      "\t\tstart: '${8:top 80%}',",
+      "\t\ttoggleActions: '${9:play none none reverse}'",
+      "\t}",
+      "});"
+    ],
+    "description": "Анімація з затримкою (stagger)"
+  },
+  "GSAP Text Split Animation": {
+    "prefix": "gsplit",
+    "body": [
+      "const ${1:split} = new SplitText('${2:.text}', { type: '${3:chars,words}' });",
+      "",
+      "gsap.from(${1:split}.${3:chars}, {",
+      "\topacity: 0,",
+      "\ty: 50,",
+      "\trotation: 10,",
+      "\tduration: 0.8,",
+      "\tstagger: 0.02,",
+      "\tease: 'back.out(1.7)',",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${2:.text}',",
+      "\t\tstart: '${4:top 80%}',",
+      "\t\ttoggleActions: '${5:play none none reverse}'",
+      "\t}",
+      "});"
+    ],
+    "description": "Анімація тексту з SplitText"
+  },
+  "GSAP ScrollTrigger Only": {
+    "prefix": "gst",
+    "body": [
+      "ScrollTrigger.create({",
+      "\ttrigger: '${1:.element}',",
+      "\tstart: '${2:top 80%}',",
+      "\tend: '${3:bottom 20%}',",
+      "\tmarkers: ${4:false},",
+      "\tonEnter: () => {${5:}},",
+      "\tonLeave: () => {${6:}},",
+      "\tonEnterBack: () => {${7:}},",
+      "\tonLeaveBack: () => {${8:}}",
+      "});"
+    ],
+    "description": "ScrollTrigger з callback функціями"
+  },
+  "GSAP Timeline with Labels": {
+    "prefix": "gtllabel",
+    "body": [
+      "const ${1:tl} = gsap.timeline({",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${2:.section}',",
+      "\t\tstart: '${3:top 80%}',",
+      "\t\ttoggleActions: '${4:play none none reverse}'",
+      "\t}",
+      "});",
+      "",
+      "${1:tl}",
+      "\t.addLabel('${5:start}')",
+      "\t.from('${6:.element1}', { ${7:opacity: 0, duration: 0.8} })",
+      "\t.addLabel('${8:middle}')",
+      "\t.from('${9:.element2}', { ${10:opacity: 0, duration: 0.8} }, '${8:middle}');"
+    ],
+    "description": "Timeline з лейблами для точного контролю"
+  },
+  "GSAP Counter Animation": {
+    "prefix": "gcounter",
+    "body": [
+      "const ${1:counter} = { value: 0 };",
+      "",
+      "gsap.to(${1:counter}, {",
+      "\tvalue: ${2:100},",
+      "\tduration: ${3:2},",
+      "\tease: '${4:power1.out}',",
+      "\tonUpdate: function() {",
+      "\t\tdocument.querySelector('${5:.counter}').textContent = Math.round(${1:counter}.value);",
+      "\t},",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${6:.section}',",
+      "\t\tstart: '${7:top 80%}',",
+      "\t\ttoggleActions: '${8:play none none reset}'",
+      "\t}",
+      "});"
+    ],
+    "description": "Анімація лічильника чисел"
+  },
+  "GSAP Match Media": {
+    "prefix": "gmm",
+    "body": [
+      "const ${1:mm} = gsap.matchMedia();",
+      "",
+      "${1:mm}.add({",
+      "\tisDesktop: '(min-width: 1024px)',",
+      "\tisMobile: '(max-width: 1023px)'",
+      "}, (context) => {",
+      "\tconst { isDesktop, isMobile } = context.conditions;",
+      "",
+      "\tgsap.from('${2:.element}', {",
+      "\t\t${3:y: isDesktop ? 100 : 50,}",
+      "\t\tduration: ${4:1},",
+      "\t\tscrollTrigger: {",
+      "\t\t\ttrigger: '${5:.section}',",
+      "\t\t\tstart: '${6:top 80%}'",
+      "\t\t}",
+      "\t});",
+      "});"
+    ],
+    "description": "Match Media для адаптивних анімацій"
+  },
+  "GSAP Batch Animation": {
+    "prefix": "gbatch",
+    "body": [
+      "ScrollTrigger.batch('${1:.item}', {",
+      "\tstart: '${2:top 80%}',",
+      "\tonEnter: (elements) => {",
+      "\t\tgsap.from(elements, {",
+      "\t\t\t${3:opacity: 0,}",
+      "\t\t\t${4:y: 50,}",
+      "\t\t\tduration: ${5:0.8},",
+      "\t\t\tstagger: ${6:0.1},",
+      "\t\t\tease: '${7:power2.out}'",
+      "\t\t});",
+      "\t},",
+      "\tonLeaveBack: (elements) => {",
+      "\t\tgsap.to(elements, { ${8:opacity: 0} });",
+      "\t}",
+      "});"
+    ],
+    "description": "Batch анімація для множини елементів"
+  },
+  "GSAP Set Properties": {
+    "prefix": "gset",
+    "body": [
+      "gsap.set('${1:.element}', {",
+      "\t${2:opacity: 0,}",
+      "\t${3:y: 50}",
+      "});"
+    ],
+    "description": "Встановити властивості без анімації"
+  },
+  "GSAP Kill Animation": {
+    "prefix": "gkill",
+    "body": [
+      "const ${1:anim} = gsap.to('${2:.element}', { ${3:x: 100, duration: 1} });",
+      "",
+      "// Зупинити анімацію",
+      "${1:anim}.kill();"
+    ],
+    "description": "Створити і зупинити анімацію"
+  },
+  "GSAP Reveal on Scroll": {
+    "prefix": "greveal",
+    "body": [
+      "gsap.from('${1:.element}', {",
+      "\ty: 100,",
+      "\topacity: 0,",
+      "\tduration: 1,",
+      "\tease: 'power3.out',",
+      "\tscrollTrigger: {",
+      "\t\ttrigger: '${1:.element}',",
+      "\t\tstart: 'top 85%',",
+      "\t\ttoggleActions: 'play none none reverse'",
+      "\t}",
+      "});"
+    ],
+    "description": "Швидкий reveal ефект при скролі"
+  }
 }

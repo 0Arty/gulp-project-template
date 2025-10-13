@@ -1,0 +1,212 @@
+{
+    "Ease Power1 In": {
+        "prefix": "gease-power1-in",
+        "body": "ease: 'power1.in'",
+        "scope": "javascript",
+        "description": "Power1 easing in"
+    },
+    "Ease Power1 Out": {
+        "prefix": "gease-power1-out",
+        "body": "ease: 'power1.out'",
+        "scope": "javascript",
+        "description": "Power1 easing out"
+    },
+    "Ease Power1 InOut": {
+        "prefix": "gease-power1-inout",
+        "body": "ease: 'power1.inOut'",
+        "scope": "javascript",
+        "description": "Power1 easing inOut"
+    },
+    "Ease Power2 In": {
+        "prefix": "gease-power2-in",
+        "body": "ease: 'power2.in'",
+        "scope": "javascript",
+        "description": "Power2 easing in"
+    },
+    "Ease Power2 Out": {
+        "prefix": "gease-power2-out",
+        "body": "ease: 'power2.out'",
+        "scope": "javascript",
+        "description": "Power2 easing out"
+    },
+    "Ease Power2 InOut": {
+        "prefix": "gease-power2-inout",
+        "body": "ease: 'power2.inOut'",
+        "scope": "javascript",
+        "description": "Power2 easing inOut"
+    },
+    "Ease Power3 In": {
+        "prefix": "gease-power3-in",
+        "body": "ease: 'power3.in'",
+        "scope": "javascript",
+        "description": "Power3 easing in"
+    },
+    "Ease Power3 Out": {
+        "prefix": "gease-power3-out",
+        "body": "ease: 'power3.out'",
+        "scope": "javascript",
+        "description": "Power3 easing out"
+    },
+    "Ease Power3 InOut": {
+        "prefix": "gease-power3-inout",
+        "body": "ease: 'power3.inOut'",
+        "scope": "javascript",
+        "description": "Power3 easing inOut"
+    },
+    "Ease Power4 In": {
+        "prefix": "gease-power4-in",
+        "body": "ease: 'power4.in'",
+        "scope": "javascript",
+        "description": "Power4 easing in"
+    },
+    "Ease Power4 Out": {
+        "prefix": "gease-power4-out",
+        "body": "ease: 'power4.out'",
+        "scope": "javascript",
+        "description": "Power4 easing out"
+    },
+    "Ease Power4 InOut": {
+        "prefix": "gease-power4-inout",
+        "body": "ease: 'power4.inOut'",
+        "scope": "javascript",
+        "description": "Power4 easing inOut"
+    },
+    "Ease Back In": {
+        "prefix": "gease-back-in",
+        "body": "ease: 'back.in(${1:1.7})'",
+        "scope": "javascript",
+        "description": "Back easing in з overshoot"
+    },
+    "Ease Back Out": {
+        "prefix": "gease-back-out",
+        "body": "ease: 'back.out(${1:1.7})'",
+        "scope": "javascript",
+        "description": "Back easing out з overshoot"
+    },
+    "Ease Back InOut": {
+        "prefix": "gease-back-inout",
+        "body": "ease: 'back.inOut(${1:1.7})'",
+        "scope": "javascript",
+        "description": "Back easing inOut з overshoot"
+    },
+    "Ease Elastic In": {
+        "prefix": "gease-elastic-in",
+        "body": "ease: 'elastic.in(${1:1}, ${2:0.3})'",
+        "scope": "javascript",
+        "description": "Elastic easing in"
+    },
+    "Ease Elastic Out": {
+        "prefix": "gease-elastic-out",
+        "body": "ease: 'elastic.out(${1:1}, ${2:0.3})'",
+        "scope": "javascript",
+        "description": "Elastic easing out"
+    },
+    "Ease Elastic InOut": {
+        "prefix": "gease-elastic-inout",
+        "body": "ease: 'elastic.inOut(${1:1}, ${2:0.3})'",
+        "scope": "javascript",
+        "description": "Elastic easing inOut"
+    },
+    "Ease Bounce In": {
+        "prefix": "gease-bounce-in",
+        "body": "ease: 'bounce.in'",
+        "scope": "javascript",
+        "description": "Bounce easing in"
+    },
+    "Ease Bounce Out": {
+        "prefix": "gease-bounce-out",
+        "body": "ease: 'bounce.out'",
+        "scope": "javascript",
+        "description": "Bounce easing out"
+    },
+    "Ease Bounce InOut": {
+        "prefix": "gease-bounce-inout",
+        "body": "ease: 'bounce.inOut'",
+        "scope": "javascript",
+        "description": "Bounce easing inOut"
+    },
+    "Ease Circ In": {
+        "prefix": "gease-circ-in",
+        "body": "ease: 'circ.in'",
+        "scope": "javascript",
+        "description": "Circular easing in"
+    },
+    "Ease Circ Out": {
+        "prefix": "gease-circ-out",
+        "body": "ease: 'circ.out'",
+        "scope": "javascript",
+        "description": "Circular easing out"
+    },
+    "Ease Circ InOut": {
+        "prefix": "gease-circ-inout",
+        "body": "ease: 'circ.inOut'",
+        "scope": "javascript",
+        "description": "Circular easing inOut"
+    },
+    "Ease Expo In": {
+        "prefix": "gease-expo-in",
+        "body": "ease: 'expo.in'",
+        "scope": "javascript",
+        "description": "Exponential easing in"
+    },
+    "Ease Expo Out": {
+        "prefix": "gease-expo-out",
+        "body": "ease: 'expo.out'",
+        "scope": "javascript",
+        "description": "Exponential easing out"
+    },
+    "Ease Expo InOut": {
+        "prefix": "gease-expo-inout",
+        "body": "ease: 'expo.inOut'",
+        "scope": "javascript",
+        "description": "Exponential easing inOut"
+    },
+    "Ease Sine In": {
+        "prefix": "gease-sine-in",
+        "body": "ease: 'sine.in'",
+        "scope": "javascript",
+        "description": "Sine easing in"
+    },
+    "Ease Sine Out": {
+        "prefix": "gease-sine-out",
+        "body": "ease: 'sine.out'",
+        "scope": "javascript",
+        "description": "Sine easing out"
+    },
+    "Ease Sine InOut": {
+        "prefix": "gease-sine-inout",
+        "body": "ease: 'sine.inOut'",
+        "scope": "javascript",
+        "description": "Sine easing inOut"
+    },
+    "Ease None": {
+        "prefix": "gease-none",
+        "body": "ease: 'none'",
+        "scope": "javascript",
+        "description": "Лінійна анімація без easing"
+    },
+    "Ease Steps": {
+        "prefix": "gease-steps",
+        "body": "ease: 'steps(${1:10})'",
+        "scope": "javascript",
+        "description": "Step easing для покрокової анімації"
+    },
+    "Ease Custom": {
+        "prefix": "gease-custom",
+        "body": "ease: CustomEase.create('custom', '${1:0.25, 0.1, 0.25, 1}')",
+        "scope": "javascript",
+        "description": "Кастомний ease з CustomEase плагіном"
+    },
+    "Ease Rough": {
+        "prefix": "gease-rough",
+        "body": "ease: RoughEase.ease.config({ strength: ${1:3}, points: ${2:20}, clamp: ${3:true} })",
+        "scope": "javascript",
+        "description": "Rough ease для трясучих ефектів"
+    },
+    "Ease SlowMo": {
+        "prefix": "gease-slowmo",
+        "body": "ease: SlowMo.ease.config(${1:0.7}, ${2:0.7}, ${3:false})",
+        "scope": "javascript",
+        "description": "SlowMo ease для slow-motion ефектів"
+    }
+}
