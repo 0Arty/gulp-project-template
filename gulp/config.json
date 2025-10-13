@@ -3,5 +3,6 @@
     "meta": {
         "title": "DEV | <blank>",
         "description": "<blank>"
-    }
+    },
+    "casheVersion": "1.0.0"
 }
