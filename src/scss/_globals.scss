@@ -40,3 +40,18 @@ a {
 //   outline-offset: rem(4);
 //   transition-duration: 0s !important;
 // }
+
+#smooth-wrapper {
+  overflow: hidden;
+}
+
+#smooth-content {
+  overflow: visible;
+  width: 100%;
+  position: relative;
+}
+
+body.no-scroll #smooth-wrapper {
+  overflow: hidden;
+  height: 100vh;
+}

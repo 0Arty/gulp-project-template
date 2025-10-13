@@ -13,20 +13,31 @@ class ModalWindow {
     }
 
     openModal() {
-        this.$modal.fadeIn(400)
-        this.$openBtn.addClass('open')
-        $('body').addClass('no-scroll')
+        this.$modal.fadeIn(400);
+        this.$openBtn.addClass('open');
+        $('body').addClass('no-scroll');
 
-        this.openOptions()
+        // Паузимо ScrollSmoother
+        if (APP.smoother) {
+            APP.smoother.paused(true);
+        }
+
+        this.openOptions();
     }
     openOptions() { }
 
-    closeModal() {
-        this.$modal.fadeOut(400)
-        this.$openBtn.removeClass('open')
-        $('body').removeClass('no-scroll')
 
-        this.closeOptions()
+    closeModal() {
+        this.$modal.fadeOut(400);
+        this.$openBtn.removeClass('open');
+        $('body').removeClass('no-scroll');
+
+        // Відновлюємо ScrollSmoother
+        if (APP.smoother) {
+            APP.smoother.paused(false);
+        }
+
+        this.closeOptions();
     }
     closeOptions() { }
 
@@ -161,18 +172,35 @@ APP.utils = {
 }
 
 APP.gsapConfig = () => {
-    gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, SplitText);
+    gsap.registerPlugin(DrawSVGPlugin, ScrollSmoother, ScrollTrigger, SplitText);
 
     ScrollTrigger.config({
         autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
         ignoreMobileResize: true
     });
 
-    ScrollTrigger.normalizeScroll({
-        allowNestedScroll: true,
-        lockAxis: true,
-        type: "touch"
-    });
+    // APP.smoother = ScrollSmoother.create({
+    //     wrapper: '#smooth-wrapper',  // Обгортка для всього контенту
+    //     content: '#smooth-content',  // Контейнер з контентом
+    //     smooth: 1.5,                 // Плавність (0.1 - 3, де більше = плавніше)
+    //     effects: true,               // Увімкнути data-speed parallax ефекти
+    //     smoothTouch: 0.1,            // Плавність на тач-пристроях (0 = вимкнено)
+    //     normalizeScroll: false,      // НЕ використовуємо normalizeScroll
+    //     ignoreMobileResize: true,    // Ігноруємо resize на мобільних
+    // });
+
+
+    // Скрол до елемента
+    // APP.smoother.scrollTo("#section2", true, "top top");
+
+    // Отримати поточну позицію скролу
+    // const scrollY = APP.smoother.scrollTop();
+
+    // Паузa smooth scroll
+    // APP.smoother.paused(true);
+
+    // Відновити smooth scroll
+    // APP.smoother.paused(false);
 
     APP.utils.onWidthChange(() => { ScrollTrigger.refresh() })
     window.addEventListener('load', () => { setTimeout(() => ScrollTrigger.refresh(), 100); });
@@ -181,6 +209,6 @@ APP.gsapConfig = () => {
 document.addEventListener("DOMContentLoaded", (event) => {
     APP.gsapConfig()
     APP.utils.inputMasks()
-    
+
     setTimeout(() => ScrollTrigger.refresh(), 100);
 });
