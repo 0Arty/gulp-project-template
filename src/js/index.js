@@ -168,7 +168,12 @@ APP.gsapConfig = () => {
         ignoreMobileResize: true
     });
 
-    ScrollTrigger.normalizeScroll(true);
+    ScrollTrigger.normalizeScroll({
+        allowNestedScroll: true,
+        lockAxis: true,
+        type: "touch"
+    });
+
     APP.utils.onWidthChange(() => { ScrollTrigger.refresh() })
     window.addEventListener('load', () => { setTimeout(() => ScrollTrigger.refresh(), 100); });
 }
